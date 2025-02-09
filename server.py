@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS  # ✅ Import CORS for cross-origin support
+from flask_cors import CORS  # ✅ Import CORS
 
 app = Flask(__name__)
-CORS(app)  # ✅ Enable CORS for all routes
+CORS(app, resources={r"/*": {"origins": "*"}})  # ✅ Enable CORS for all routes
 
 # 🔐 Store used tokens in memory (consider using a database for production)
 claimed_tokens = set()
